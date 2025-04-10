@@ -27,7 +27,6 @@
               }
             ],
             "styles": [
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -93,8 +92,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "286873b7-c22e-4a47-8b07-b7bd83d6b790"
   }
 }

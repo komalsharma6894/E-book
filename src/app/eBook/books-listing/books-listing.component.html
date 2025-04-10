@@ -1,0 +1,27 @@
+<app-header/>
+<div class="table-container">
+  <h2 class="table-title">Available Books</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Book Name</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (book of books; track book){
+        <tr>
+          <td>{{ book.name }}</td>
+          <td>
+            @if (isBookPurchased(book.id)) {
+              <button (click)="readBook(book.name)">Read Me</button>
+            } @else {
+              <button (click)="purchaseBook(book.id)">Purchase</button>
+            }
+          </td>
+        </tr>
+      }
+
+    </tbody>
+  </table>
+</div>

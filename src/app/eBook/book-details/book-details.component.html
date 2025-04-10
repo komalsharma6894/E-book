@@ -1,0 +1,11 @@
+<app-header />
+<div class="book-detail-container">
+  <h2>{{ bookName }}</h2>
+  <p>{{ paginatedDescription[currentPage - 1] }}</p>
+
+  <div class="pagination-controls">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>

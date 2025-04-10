@@ -1,12 +1,23 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, inject} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
+import {AuthService} from './services/auth.service';
+import {NgToastModule} from 'ng-angular-popup';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NgToastModule],
   templateUrl: './app.component.html',
+  standalone: true,
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'E-book';
+  private router = inject(Router);
+  private authService = inject(AuthService);
+
+  ngOnInit() {
+    if (!this.authService.isAuthenticated()) {
+      this.authService.logout();
+      this.router.navigate(['/login']);
+    }
+  }
 }
